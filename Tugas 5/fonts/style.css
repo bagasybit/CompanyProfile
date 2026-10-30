@@ -1,0 +1,131 @@
+/* ===== Ocean Xes — marine company ===== */
+@font-face{font-family:"spacee";src:url("./fonts/space.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"mona";src:url("./fonts/mona.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+
+:root{
+  --abyss:#04213A;   /* biru paling gelap */
+  --deep:#0A4A6E;    /* biru laut dalam */
+  --sea:#1479A8;     /* biru laut */
+  --mist:#7FC4DC;    /* biru muda */
+  --foam:#EAF4F8;    /* putih kebiruan */
+  --white:#fff;
+  --ink:#0B2236;
+  --font-body:"Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+}
+/* GAMBAR: taruh file di folder images/ dengan nama di bawah ini */
+.img-hero{--img:url("images/hero.jpg")}
+.img-about{--img:url("images/about.jpg")}
+.img-contact{--img:url("images/contact.jpg")}
+
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--font-body);color:var(--ink);background:var(--white);line-height:1.7;font-size:1.0625rem}
+:focus-visible{outline:3px solid var(--mist);outline-offset:3px}
+
+.spacee{font-family:"spacee",sans-serif;letter-spacing:.08em}
+.mona{font-family:"mona",serif;letter-spacing:.02em;line-height:1.05;font-weight:400}
+
+/* ---------- Navbar ---------- */
+.custom-navbar{padding:20px 0;background:transparent;transition:background .35s,padding .35s,box-shadow .35s;z-index:1000}
+.custom-navbar.scrolled{background:var(--abyss);padding:10px 0;box-shadow:0 2px 18px rgba(4,33,58,.35)}
+.navbar-brand{font-family:"spacee",sans-serif;font-size:1.05rem;letter-spacing:.14em;color:var(--white)!important}
+.navbar-brand i{color:var(--mist);margin-right:.5rem}
+.nav-link{color:rgba(255,255,255,.85)!important;font-size:.95rem;margin-left:1.4rem;position:relative}
+.nav-link:hover{color:var(--white)!important}
+.nav-link::after{content:"";position:absolute;left:0;bottom:2px;width:0;height:2px;background:var(--mist);transition:width .25s}
+.nav-link:hover::after{width:100%}
+.nav-cta{border:1px solid var(--mist);padding:.35rem 1.1rem!important}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:var(--white);color:var(--abyss)!important;border-color:var(--white)}
+@media(max-width:991px){
+  .custom-navbar{background:var(--abyss)}
+  .nav-link{margin:0;padding:.6rem 0}
+  .nav-cta{display:inline-block;margin-top:.5rem}
+}
+
+/* ---------- Hero ---------- */
+.jumbotron{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:var(--white);
+  background:
+    linear-gradient(180deg,rgba(4,33,58,.55) 0%,rgba(4,33,58,.35) 40%,rgba(4,33,58,.92) 100%),
+    var(--img,none) center/cover no-repeat,
+    linear-gradient(160deg,var(--deep),var(--abyss) 70%)}
+.hero-inner{padding:9rem 0 5rem;max-width:880px}
+.hero-title{font-size:clamp(2.8rem,8vw,6.2rem);margin:0 0 1.5rem}
+.hero-text{font-size:1.2rem;max-width:560px;color:rgba(255,255,255,.88);margin-bottom:2.2rem}
+.btn-sea,.btn-line{display:inline-block;padding:.85rem 2rem;text-decoration:none;font-weight:600;font-size:.98rem;transition:background .25s,color .25s,border-color .25s}
+.btn-sea{background:var(--sea);color:var(--white);border:1px solid var(--sea)}
+.btn-sea:hover{background:var(--white);color:var(--abyss);border-color:var(--white)}
+.btn-line{color:var(--white);border:1px solid rgba(255,255,255,.6);margin-left:.8rem}
+.btn-line:hover{background:var(--white);color:var(--abyss)}
+@media(max-width:575px){.btn-line{margin:.8rem 0 0}}
+/* satu-satunya animasi saat load: hero muncul */
+.hero-inner>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-inner>*:nth-child(2){animation-delay:.15s}
+.hero-inner>*:nth-child(3){animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* ---------- Stats ---------- */
+.stats{background:var(--sea);color:var(--white);padding:2.6rem 0}
+.stat{text-align:left;padding:.6rem 0 .6rem 1.2rem;border-left:2px solid rgba(255,255,255,.4)}
+.stat b{display:block;font-family:"mona",serif;font-weight:400;font-size:clamp(2.2rem,4vw,3.2rem);line-height:1}
+.stat span{font-size:.95rem;color:rgba(255,255,255,.88)}
+
+/* ---------- About ---------- */
+.about{display:grid;grid-template-columns:1.1fr 1fr;min-height:640px}
+.about-text{background:var(--abyss);color:var(--white);padding:6rem clamp(1.5rem,6vw,6rem);display:flex;flex-direction:column;justify-content:center}
+.about-text p{color:rgba(255,255,255,.82);max-width:60ch}
+.about-img{background:var(--img,none) center/cover no-repeat,linear-gradient(200deg,var(--sea),var(--deep));min-height:360px}
+.section-title{font-size:clamp(2.2rem,4.5vw,3.6rem);margin-bottom:1.5rem}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+
+/* ---------- Services ---------- */
+.service{background:var(--foam);padding:6rem 0}
+.service-head{max-width:640px;margin-bottom:3rem}
+.service-head .section-title{color:var(--abyss)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.svc{background:var(--white);padding:2.2rem 1.8rem 2.4rem;border-top:4px solid var(--sea);transition:background .25s,color .25s,transform .25s}
+.svc i{font-size:2rem;color:var(--sea);display:block;margin-bottom:1.2rem;transition:color .25s}
+.svc h3{font-size:1.2rem;font-weight:700;color:var(--abyss);margin-bottom:.6rem;transition:color .25s}
+.svc p{margin:0;font-size:.98rem;color:#3d566b;transition:color .25s}
+.svc:hover{background:var(--abyss);transform:translateY(-4px)}
+.svc:hover i{color:var(--mist)}.svc:hover h3{color:var(--white)}.svc:hover p{color:rgba(255,255,255,.8)}
+@media(max-width:991px){.service-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:575px){.service-grid{grid-template-columns:1fr}}
+
+/* ---------- Clients ---------- */
+.clients{padding:4.5rem 0;background:var(--white)}
+.clients h2{font-size:1.1rem;color:var(--deep);text-align:center;margin-bottom:2rem}
+.logo-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.logo-slot{height:80px;border:1px dashed #b8d2df;display:flex;align-items:center;justify-content:center;color:#7a97aa;font-size:.85rem;background:var(--white)}
+.logo-slot img{max-height:48px;max-width:80%;filter:grayscale(1);opacity:.75}
+@media(max-width:767px){.logo-row{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- Testimonial ---------- */
+.testimonial{background:var(--deep);color:var(--white);padding:6rem 0}
+.quote{max-width:820px;margin:0 auto}
+.quote blockquote{font-family:"mona",serif;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.25;margin:0 0 1.8rem}
+.quote cite{font-style:normal;color:var(--mist)}
+.quote cite b{display:block;color:var(--white)}
+
+/* ---------- Contact ---------- */
+.lookbook__close{position:relative;padding:6rem 0;color:var(--white);
+  background:linear-gradient(rgba(4,33,58,.9),rgba(4,33,58,.94)),var(--img,none) center/cover no-repeat,var(--abyss)}
+.lookbook__close-heading{font-size:clamp(2.2rem,4.5vw,3.6rem);margin-bottom:1rem}
+.lookbook__close-text{max-width:46ch;color:rgba(255,255,255,.82)}
+.contact-form{max-width:560px}
+.contact-form__group{margin-bottom:1.3rem}
+.contact-form__label{display:block;font-size:.9rem;margin-bottom:.35rem;color:var(--mist)}
+.contact-form__input,.contact-form__textarea{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.3);color:var(--white);padding:.8rem 1rem;font:inherit}
+.contact-form__input::placeholder,.contact-form__textarea::placeholder{color:rgba(255,255,255,.5)}
+.contact-form__input:focus,.contact-form__textarea:focus{background:rgba(255,255,255,.14);border-color:var(--mist);outline:none}
+.contact-form__submit{background:var(--white);color:var(--abyss);border:0;padding:.9rem 2.2rem;font-weight:700;transition:background .25s,color .25s}
+.contact-form__submit:hover{background:var(--sea);color:var(--white)}
+.contact-info{list-style:none;padding:0;margin:2rem 0 0;color:rgba(255,255,255,.85)}
+.contact-info i{color:var(--mist);margin-right:.7rem}
+
+/* ---------- Footer ---------- */
+footer{background:var(--abyss);color:rgba(255,255,255,.65);padding:1.6rem 0;font-size:.9rem;border-top:1px solid rgba(255,255,255,.12)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}

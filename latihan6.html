@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap 5.3.8</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="p-4">
+
+    <h3 class="mb-4">Bootstrap Components</h3>
+
+    <!-- Modal -->
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
+        Modal
+    </button>
+
+    <div class="modal" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Modal</h5>
+                </div>
+                <div class="modal-body">
+                    Halo, ini Modal!
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Accordion -->
+    <div class="accordion mt-3" id="accordion">
+        <div class="accordion-item">
+            <button class="accordion-button collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#isi">
+                Accordion
+            </button>
+
+            <div id="isi" class="collapse">
+                <div class="p-3">
+                    Ini isi Accordion.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Collapse -->
+    <button class="btn btn-success mt-3"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse">
+        Collapse
+    </button>
+
+    <div id="collapse" class="collapse mt-2">
+        <div class="alert alert-success">
+            Ini isi Collapse!
+        </div>
+    </div>
+
+
+    <!-- Tooltip -->
+    <button class="btn btn-warning mt-3"
+            data-bs-toggle="tooltip"
+            title="Halo!">
+        Tooltip
+    </button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        new bootstrap.Tooltip(document.querySelector('[data-bs-toggle="tooltip"]'));
+    </script>
+
+</body>
+</html>
